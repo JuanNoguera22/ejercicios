@@ -3,12 +3,30 @@ B_3d = 15500
 B_2d = 11300
 valor_total = 0
 
+sala = input("ingrese el tipo de sala 2D, 3D y Dinamix: ")
+tarjeta = input("tiene tarjeta escriba si o no: ")
+if(tarjeta == "si"):
+    tarjeta = True
+else:
+    tarjeta= False
+pico =input("es hora pico, escriba si o no: ")
+if(pico == "si"):
+    pico = True
+else:
+    pico= False
+boletas = int(input("cuantas boletas va a comprar: "))
+reserv =input("hizo reserva, escriba si o no: ")
+if(reserv == "si"):
+    reserv = True
+else:
+    reserv= False
+
 def calcular_costo_boleta(valor_total):
-    caso = {"cant_boleta": 2, 
-        "tipo_sala": "2D",
-        "hora_pico": False,
-        "pago_tarjeta_cine": False,
-         "reserva": True}
+    caso = {"cant_boleta": boletas, 
+        "tipo_sala": sala,
+        "hora_pico": pico,
+        "pago_tarjeta_cine": tarjeta,
+         "reserva": reserv}
 
     if (caso["tipo_sala"]== "2D"):
         Valor_basico = B_2d * caso["cant_boleta"]
@@ -37,4 +55,4 @@ def calcular_costo_boleta(valor_total):
         valor_total = valor_total + (caso["cant_boleta"]*2000)
     return valor_total
 
-print(int(calcular_costo_boleta(valor_total)))
+print("el valor total es ",int(calcular_costo_boleta(valor_total)))
